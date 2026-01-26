@@ -1,0 +1,21 @@
+title: Walid Notes
+email:
+description: >- # this means to ignore newlines until "baseurl:"
+  Walid Amriou's personal notes and blog.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  walidamriou
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  
+badge_colors:
+  - "#00065e"
+  - "#2000c1"
+  - "#c10000"
+  - "#2d8800"
+  - "#9d004c"
+  - "#364f00"
+  - "#00725f"
