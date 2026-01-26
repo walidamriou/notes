@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Walid Amriou Notes Website">
+  <meta name="author" content="walidamriou">
+  <title>{{ page.title }} {{ site.title }}</title>
+  <link rel="icon" href="../assets/img/icon/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  <style>
+    html,
+    body {
+      background-color: #f5f5f5;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: monospace;
+      opacity: 1;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    footer {
+      padding: 4%;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 1%;
+      text-align: center;
+      margin-bottom: 1%;
+      margin-top: 1%
+    }
+
+    section {
+      text-align: center;
+      padding: 1%;
+    }
+
+    .nobullets {
+      list-style-type: none;
+      padding-left: 0;
+    } 
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  </style>
+</head>
+
+<body>
+  <header style="font-family: monospace;">
+    <h1 style="font-size: 2.5rem; font-weight: 700;"><a href="/" role="link">WALID NOTES</a></h1>
+    <h3 style="font-size: 1.3rem; font-weight: 400;">The personal blog of Walid A.</h3>
+  </header>
+
+  <main>
+    <section style="text-align: left; padding-top: 5%; padding-bottom: 5%; background-color: #f5f5f5;padding-left:20%"
+      class="txt-small-width txt-medium-width txt-large-width">
+
+      {% assign colors = site.badge_colors %}
+      {% if colors and colors.size > 0 %}
+      {% assign seed = page.url | size | modulo: colors.size %}
+      {% assign badge_color = colors[seed] %}
+      {% else %}
+      {% assign badge_color = "#000000" %}
+      {% endif %}
+
+      <h1 style="font-size: 20px;">
+        <b
+          style="color: #F5F5F5; background-color: {{ badge_color }}; border-radius: 15px; padding: 8px 12px;margin-right: 10px;">
+          {{ page.title }}
+        </b>
+      </h1>
+      <h3>
+        {% if page.tags %}
+        {% for tag in page.tags %}
+        <span style="margin: 5px;line-height: 1.8; color: #ffffff; background-color: #373737; border-radius: 15px; padding: 5px;">
+          {{ tag }}
+        </span>
+        {% endfor %}
+        {% endif %}
+      </h3>
+
+      <div style="width: 80%; font-size: 18px; line-height: 1.8; font-weight: normal; margin-top: 20px;">
+        <article>
+          {{ content }}
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+
+<footer style="font-family: monospace;">
+  <p>The Personal Blog of Walid A. © 2026</p>
+</footer>
+</body>
+
+</html>

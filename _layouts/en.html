@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Walid Amriou Notes Website">
+  <meta name="author" content="walidamriou">
+  <title>{{ page.title }} {{ site.title }}</title>
+  <link rel="icon" href="../assets/img/icon/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    html,
+    body {
+      background-color: #f5f5f5;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: monospace;
+      opacity: 0.9;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    footer {
+      padding: 4%;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 1%;
+      text-align: center;
+      margin-bottom: 1%;
+      margin-top: 1%
+    }
+
+    section {
+      text-align: center;
+      padding: 1%;
+    }
+
+    .nobullets {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 style="font-size: 2.5rem; font-weight: 700;"><a href="/" role="link">WALID NOTES</a></h1>
+    <h3 style="font-size: 1.3rem; font-weight: 400;">The personal blog of Walid A.</h3>
+  </header>
+  <main>
+    <section style="text-align: left; padding-top: 5%; padding-bottom: 5%; background-color: #F5F5F5;"
+      class="txt-small-width txt-medium-width txt-large-width">
+      <div style="width: 80%;padding-left:20%">
+        
+        <h5 style="font-size: 1.4375rem; font-weight: 300; line-height: 1.8;">
+          {% assign colors = "#00065e, #2000c1, #c10000, #2d8800, #9d004c,#364f00, #00725f, #004b91, #8a0063,
+          #116530,#7f0f00, #3a0088, #005f4f, #6d002e, #263d00,#004076, #850000, #4a0072, #003f2d, #660000" | split: ","
+          %}
+          <ul class="nobullets">
+            {% for page in site.pages %}
+            {% if page.language == 'en' %}
+            {% if colors and colors.size > 0 %}
+            {% assign color_index = forloop.index0 | modulo: colors.size %}
+            {% assign badge_color = colors[color_index] %}
+            {% else %}
+            {% assign badge_color = "#000000" %}
+            {% endif %}
+            <li style="margin: 20px;">
+              <a href="{{page.url | relative_url }}" style="text-decoration: none; color: inherit;">
+                <b style="color: #F5F5F5; background-color: {{ badge_color }}; border-radius: 15px; padding: 5px;">
+                  {{ page.title }}
+                </b>
+                {% if page.tags %}
+                {% for tag in page.tags %}
+                <a href="{{ '/tag/' | append: tag | append: '/' | relative_url }}">
+                  <span
+                    style="font-size: 12px;margin: 5px; color: #ffffff; background-color: #373737; border-radius: 15px; padding: 5px;">
+                    {{ tag }}
+                  </span>
+                </a>
+                {% endfor %}
+                {% endif %}
+                {% endif %}
+              </a>
+              <br />
+            </li>
+            {% endfor %}
+          </ul>
+        </h5>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>The Personal Blog of Walid A. © 2026</p>
+  </footer>
+</body>
+
+</html>
