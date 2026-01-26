@@ -56,11 +56,27 @@
     .nobullets {
       list-style-type: none;
       padding-left: 0;
-    } 
-  table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    a,
+    a:visited,
+    a:active {
+      color: #000000;
+      /* or whatever color you want */
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: #000;
+      color: #6eefae
+    }
   </style>
 </head>
 
@@ -91,7 +107,8 @@
       <h3>
         {% if page.tags %}
         {% for tag in page.tags %}
-        <span style="margin: 5px;line-height: 1.8; color: #ffffff; background-color: #373737; border-radius: 15px; padding: 5px;">
+        <span
+          style="margin: 5px;line-height: 1.8; color: #ffffff; background-color: #373737; border-radius: 15px; padding: 5px;">
           {{ tag }}
         </span>
         {% endfor %}

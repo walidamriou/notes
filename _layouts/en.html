@@ -60,6 +60,18 @@
       list-style-type: none;
       padding-left: 0;
     }
+
+    a:visited,
+    a:active {
+      color: #000000;
+      /* or whatever color you want */
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: #000;
+      color: #6eefae
+    }
   </style>
 </head>
 
@@ -72,7 +84,7 @@
     <section style="text-align: left; padding-top: 5%; padding-bottom: 5%; background-color: #F5F5F5;"
       class="txt-small-width txt-medium-width txt-large-width">
       <div style="width: 80%;padding-left:20%">
-        
+
         <h5 style="font-size: 1.4375rem; font-weight: 300; line-height: 1.8;">
           {% assign colors = "#00065e, #2000c1, #c10000, #2d8800, #9d004c,#364f00, #00725f, #004b91, #8a0063,
           #116530,#7f0f00, #3a0088, #005f4f, #6d002e, #263d00,#004076, #850000, #4a0072, #003f2d, #660000" | split: ","
